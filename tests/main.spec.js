@@ -9,6 +9,20 @@ sinonStubPromise(sinon);
 global.fetch = require('node-fetch')
 
 describe('spotify wrepper', () => {
+
+  let fetchedStub;
+  let promise;
+
+  beforeEach(() => {
+    fetchedStub = sinon.stub(global, 'fetch');
+    fetchedStub.returns(Promise.resolve({ json: () => 'resolved' }));
+    // fetchedStub.returns(Promise.reject({ error: 'error' }));
+  });
+
+  afterEach(() => {
+    fetchedStub.restore();
+  });
+
   describe('Smoke Tests', () => {
     //search generico que pode buscar por mais de um tipo
     //search albuns
@@ -38,27 +52,16 @@ describe('spotify wrepper', () => {
 
 
   describe('Generic Search', () => {
-    let fetchedStub;
 
-    beforeEach(() => {
-      fetchedStub = sinon.stub(global, 'fetch');
-      fetchedStub = fetchedStub.callsFake(new Promise((resolve, reject) => {
-        return resolve();
-      })
-      );
-
-    });
-
-    afterEach(() => {
-      fetchedStub.restore();
-    });
 
     it('should call fetch function', () => {
+
       const artist = search();
       expect(fetchedStub).to.have.been.calledOnce;
     });
 
     it('should recive the correct url to fetch', () => {
+
       context('pass one type', () => {
         const artist = search('Incubos', 'artist');
         expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubos&type=artist')
@@ -73,7 +76,32 @@ describe('spotify wrepper', () => {
         expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubos&type=artist,album')
 
       });
+    });
 
+    it('should return the JSON data from the Promise', () => {
+
+
+      const artists = search('Incubos', 'artist');
+      expect(artists.resolveValue).to.be.equal({ body: 'json' });
     });
   });
+
+
+  describe('searchArtists', () => {
+    it('should call fetch function', () => {
+      const artists = searchArtists('Incubus');
+      expect(fetchedStub).to.have.been.calledOnce;
+    });
+
+    it('should call fetch with the correct URL', () => {
+      const artists = searchArtists('Incubus');
+      expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubos&type=artist');
+
+      const artists = searchArtists('Muse');
+      expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubos&type=artist');
+    });
+  });
+
 });
+
+
