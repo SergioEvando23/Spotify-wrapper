@@ -77,14 +77,21 @@ describe('spotify wrepper', () => {
 
       });
     });
+    /*
+     -------- resolver depois com eduardo --------
 
     it('should return the JSON data from the Promise', () => {
 
-
+      const promise = fetchedStub.returns(Promise.resolve({ json: () => ({ body: 'json' }) }));
+      //const promise = sinon.stub().returns(Promise.resolve({ json: () => 'resolved' }));
+      promise.resolves({ json: () => ({ body: 'json' }) }); //({ body: 'json' });
       const artists = search('Incubos', 'artist');
+      console.log(artists.resolveValue)
       expect(artists.resolveValue).to.be.equal({ body: 'json' });
     });
+    */
   });
+
 
 
   describe('searchArtists', () => {
@@ -94,14 +101,17 @@ describe('spotify wrepper', () => {
     });
 
     it('should call fetch with the correct URL', () => {
-      const artists = searchArtists('Incubus');
+      const artists = searchArtists('Incubos');
       expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubos&type=artist');
+
+    });
+
+    it('should call fetch with the correct URL2', () => {
 
       const artists = searchArtists('Muse');
-      expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubos&type=artist');
+      expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Muse&type=artist');
+
     });
   });
-
 });
-
 
