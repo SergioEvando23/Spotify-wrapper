@@ -113,5 +113,66 @@ describe('spotify wrepper', () => {
 
     });
   });
+
+
+  describe('searchAlbuns', () => {
+    it('should call fetch function', () => {
+      const albuns = searchAlbums('Incubus');
+      expect(fetchedStub).to.have.been.calledOnce;
+    });
+
+    it('should call fetch with the correct URL', () => {
+      const albuns = searchAlbums('Incubos');
+      expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubos&type=album');
+
+    });
+
+    it('should call fetch with the correct URL2', () => {
+
+      const aalbuns = searchAlbums('Muse');
+      expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Muse&type=album');
+
+    });
+  });
+
+  describe('searchTracks', () => {
+    it('should call fetch function', () => {
+      const tracks = searchTracks('Incubus');
+      expect(fetchedStub).to.have.been.calledOnce;
+    });
+
+    it('should call fetch with the correct URL', () => {
+      const tracks = searchTracks('Incubos');
+      expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubos&type=track');
+
+    });
+
+    it('should call fetch with the correct URL2', () => {
+
+      const atracks = searchTracks('Muse');
+      expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Muse&type=track');
+
+    });
+  });
+
+  describe('searchPlaylists', () => {
+    it('should call fetch function', () => {
+      const playLists = searchPlayLists('Incubus');
+      expect(fetchedStub).to.have.been.calledOnce;
+    });
+
+    it('should call fetch with the correct URL', () => {
+      const playLists = searchPlayLists('Incubos');
+      expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubos&type=playList');
+
+    });
+
+    it('should call fetch with the correct URL2', () => {
+
+      const playLists = searchPlayLists('Muse');
+      expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Muse&type=playList');
+
+    });
+  });
 });
 

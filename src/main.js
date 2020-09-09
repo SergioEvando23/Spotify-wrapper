@@ -6,10 +6,10 @@ export const searchArtists = (query) =>
   search(query, 'artist')
 
 export const searchAlbums = (query) =>
-  search(query, 'albuns')
+  search(query, 'album')
 
 export const searchTracks = (query) =>
-  search(query, 'tracks')
+  search(query, 'track')
 
 export const searchPlayLists = (query) =>
   search(query, 'playList')
