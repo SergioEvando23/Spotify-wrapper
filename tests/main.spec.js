@@ -8,7 +8,7 @@ sinonStubPromise(sinon);
 
 global.fetch = require('node-fetch')
 
-describe('spotify wrepper', () => {
+describe('spotify wrapper', () => {
 
   let fetchedStub;
   let promise;
@@ -49,7 +49,6 @@ describe('spotify wrepper', () => {
       expect(searchPlayLists).to.exist;
     });
   });
-
 
   describe('Generic Search', () => {
 
@@ -92,8 +91,6 @@ describe('spotify wrepper', () => {
     */
   });
 
-
-
   describe('searchArtists', () => {
     it('should call fetch function', () => {
       const artists = searchArtists('Incubus');
@@ -113,7 +110,6 @@ describe('spotify wrepper', () => {
 
     });
   });
-
 
   describe('searchAlbuns', () => {
     it('should call fetch function', () => {
