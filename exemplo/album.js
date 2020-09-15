@@ -1,7 +1,7 @@
 global.fetch = require('node-fetch');
 
-import { searchAlbums } from '../src/main.js';
+import searchAlbums from '../src/main.js';
 
-const albuns = searchAlbums('incubos');
+const albuns = searchAlbums('incubus');
 
 albuns.then(data => console.log(data));
