@@ -9,7 +9,7 @@
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require @babel/register",
     "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require @babel/register --watch",
     "test:coverage": "nyc npm run test",
-    "start": "babel-node index.js",
+    "start": "nodemon --exec babel-node ./src/index.js",
     "dev": "nodemon -w src --exec \"babel-node src --presets env\""
   },
   "nyc": {
@@ -55,6 +55,8 @@
     "sinon-stub-promise": "^4.0.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.10.4"
-  }
+    "@babel/polyfill": "^7.10.4",
+    "core-js": "^3.6.5"
+  },
+  "browserslist": "> 0.25%, not dead"
 }
