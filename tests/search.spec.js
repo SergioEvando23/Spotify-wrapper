@@ -1,5 +1,5 @@
 import Chai, { expect } from 'Chai';
-import { search, searchAlbums, searchArtists, searchTracks, searchPlayLists } from '../src/main.js';
+import { search, searchAlbums, searchArtists, searchTracks, searchPlayLists } from '../src/search.js';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import sinonStubPromise from 'sinon-stub-promise';
@@ -8,7 +8,7 @@ sinonStubPromise(sinon);
 
 global.fetch = require('node-fetch')
 
-describe('spotify wrapper', () => {
+describe('Search', () => {
 
   let fetchedStub;
   let promise;
