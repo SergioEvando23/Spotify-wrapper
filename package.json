@@ -12,7 +12,8 @@
     "start": "nodemon --exec babel-node ./src/index.js",
     "dev": "nodemon -w src --exec \"babel-node src --presets env\"",
     "clear": "rimraf lib",
-    "build": "./node_modules/.bin/babel --out-dir lib src",
+    "transp": "./node_modules/.bin/babel --out-dir lib src",
+    "build": "npm run clear && npm run transp",
     "build:watch": "npm run build -- --watch"
   },
   "nyc": {
