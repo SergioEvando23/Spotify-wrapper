@@ -14,7 +14,8 @@
     "clear": "rimraf lib",
     "transp": "./node_modules/.bin/babel --out-dir lib src",
     "build": "npm run clear && npm run transp",
-    "build:watch": "npm run build -- --watch"
+    "build:watch": "npm run build -- --watch",
+    "build:umd": "./node_modules/.bin/eslint src/*.js"
   },
   "nyc": {
     "functions": 80,
@@ -56,7 +57,8 @@
     "nyc": "^10.2.0",
     "sinon": "^9.0.3",
     "sinon-chai": "^3.5.0",
-    "sinon-stub-promise": "^4.0.0"
+    "sinon-stub-promise": "^4.0.0",
+    "webpack": "^4.44.2"
   },
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
