@@ -1,5 +1,18 @@
 import express from 'express';
 
+import {
+  search,
+  searchArtists,
+  searchAlbums,
+  searchPlayLists,
+} from './search';
+
+import {
+  getAlbum,
+  getAlbums,
+  getAlbumTracks,
+} from './album';
+
 const app = express();
 
 const port = 3000;
@@ -8,23 +21,10 @@ app.listen(port, () => {
 });
 
 app.get('/', (req, res) => {
-  res.send("")
+  res.send('');
 });
 
 export default app;
-
-import {
-  search,
-  searchArtists,
-  searchAlbums,
-  searchPlayLists
-} from './search'
-
-import {
-  getAlbum,
-  getAlbums,
-  getAlbumTracks
-} from './album'
 
 module.exports = {
   search,
@@ -33,5 +33,5 @@ module.exports = {
   searchPlayLists,
   getAlbum,
   getAlbums,
-  getAlbumTracks
-}
+  getAlbumTracks,
+};
