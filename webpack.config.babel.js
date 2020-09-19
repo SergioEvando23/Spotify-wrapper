@@ -3,8 +3,9 @@ import { join } from 'path'
 const include = join(__dirname, 'src')
 
 export default {
-
+  mode: 'development',
   entry: './src/index',
+  target: 'node',
   output: {
     path: join(__dirname, 'dist'),
     libraryTarget: 'umd',
@@ -12,10 +13,11 @@ export default {
   },
   devtool: 'source-map',
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        exclude: /node_modules/,
+        use: 'babel-loader',
         include
       },
     ]
