@@ -16,7 +16,8 @@
     "transp": "./node_modules/.bin/babel --out-dir lib src",
     "build": "npm run clear && npm run transp",
     "build:watch": "npm run build -- --watch",
-    "build:umd": "./node_modules/.bin/webpack --output-filename spotfyWapper.umd.js"
+    "build:umd": "./node_modules/.bin/webpack --output-filename spotfyWapper.umd.js",
+    "build:umd:min": "./node_modules/.bin/webpack --output-filename spotfyWapper.umd.min.js -p"
   },
   "nyc": {
     "functions": 80,
