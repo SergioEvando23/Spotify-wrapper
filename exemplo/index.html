@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title> Sportify Wrapper Test</title>
+    <meta charset="utf-8" />
+    <style>
+
+    </style>
+  </head>
+
+  <!--   -->
+
+  <body>
+    <script src="../dist/spotfyWapper.umd.js"> </script>
+
+    <script>
+      const albuns = spotfyWrapper.searchAlbums('incubus');
+
+      albums.then(data => {
+        markup = data.albums.items.map(item =>
+        `<img src='${item.images[0].url}' alt='${item.name}' />`
+        ).join('');
+        console.log(markup);
+
+      })
+
+    </script>
+  </body>
+
+</html>

@@ -17,7 +17,8 @@
     "build": "npm run clear && npm run transp",
     "build:watch": "npm run build -- --watch",
     "build:umd": "./node_modules/.bin/webpack --output-filename spotfyWapper.umd.js",
-    "build:umd:min": "./node_modules/.bin/webpack --output-filename spotfyWapper.umd.min.js -p"
+    "build:umd:min": "./node_modules/.bin/webpack --output-filename spotfyWapper.umd.min.js -p",
+    "build:all": "npm run build:umd && npm run build:umd:min"
   },
   "nyc": {
     "functions": 80,

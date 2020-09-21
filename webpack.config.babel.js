@@ -9,7 +9,7 @@ export default {
   output: {
     path: join(__dirname, 'dist'),
     libraryTarget: 'umd',
-    library: 'spotfyWrapper',
+    library: 'spotifyWrapper',
   },
   devtool: 'source-map',
   module: {
